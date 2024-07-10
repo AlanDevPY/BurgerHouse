@@ -1,0 +1,1 @@
+import {registrarUsuario} from './firebase.js';
