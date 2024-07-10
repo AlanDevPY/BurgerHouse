@@ -1,11 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BurgerHouse</title>
-</head>
-<body>
-    <h1>probando GitHub</h1>
-</body>
-</html>
+<?php 
+//incluir la conexion de base de datos
+require "../config/Conexion.php";
+class Usuario{
+
+
+	//implementamos nuestro constructor
+public function __construct(){
+
+}
+//funcion que verifica el acceso al sistema
+
+public function verificar($username,$password){
+
+	$sql="SELECT idusuario,nombre,tipo_documento,num_documento,telefono,email,cargo,imagen,login FROM usuario WHERE login='$login' AND clave='$clave' AND condicion='1'";
+	 return ejecutarConsulta($sql);
+
+}
+}
+
+ ?>
