@@ -1,5 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
+import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -15,3 +17,17 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app); // Recommended to pass `app`
+
+export const registrarUsuario = (username,password ) => {
+    try {
+      addDoc(collection(db, "pedidos"), {
+        username: username,
+        password: password
+      });
+      console.log("Usuario Registrado");
+    }
+    catch (error) {
+      console.error('Error al registrar el usuario', error)
+    }
+  }
