@@ -21,7 +21,19 @@ const db = getFirestore(app); // Recommended to pass `app`
 
 export const registrarUsuario = (username,password ) => {
     try {
-      addDoc(collection(db, "pedidos"), {
+      addDoc(collection(db, "usuario"), {
+        username: username,
+        password: password
+      });
+      console.log("Usuario Registrado");
+    }
+    catch (error) {
+      console.error('Error al registrar el usuario', error)
+    }
+  }
+  export const registrarventa = (username,password ) => {
+    try {
+      addDoc(collection(db, "venta"), {
         username: username,
         password: password
       });
