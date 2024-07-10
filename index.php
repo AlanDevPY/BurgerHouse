@@ -11,10 +11,8 @@
     // Redireccionar a la vista de login después de un breve intervalo
     setTimeout(function() {
         window.location.href = 'vista/login.html';
-    }, 2000); // Redirigir después de 2 segundos (opcional)
+    }, 1000); // Redirigir después de 2 segundos (opcional)
 </script>
-
-<p>Estás siendo redirigido a la página de login...</p>
 
 </body>
 </html>
