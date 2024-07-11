@@ -31,10 +31,15 @@ export function inicio_session(usuario, password) {
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorMessage)
+      console.log(errorCode)
+      let alert = document.getElementById('alertLogin')
+      alert.style.display = 'block'
+      alert.innerHTML = "Credenciales incorrectas, favor verifique sus datos"
     });
 
 }
+
+
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('usuario iniciado')
@@ -45,7 +50,7 @@ onAuthStateChanged(auth, (user) => {
 })
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
-    //console.log('la sesion esta siendo iniciada')
+    
   }).catch((error) => {
-    console.log(error)
+    console.log(error)  
   })
