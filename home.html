@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,17 +16,18 @@
   <link rel="stylesheet" href="public/css/AdminLTE.min.css">
   <link rel="stylesheet" href="public/css/_all-skins.min.css">
   <!-- Morris chart --><!-- Daterange picker -->
- <link rel="stylesheet" href="img/apple-touch-ico.png">
- <link rel="stylesheet" href="img/favicon.ico">
-<!-- DATATABLES-->
-<link rel="stylesheet" href="public/datatables/jquery.dataTables.min.css">
-<link rel="stylesheet" href="public/datatables/buttons.dataTables.min.css">
-<link rel="stylesheet" href="public/datatables/responsive.dataTables.min.css">
-<link rel="stylesheet" href="public/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="img/apple-touch-ico.png">
+  <link rel="stylesheet" href="img/favicon.ico">
+  <!-- DATATABLES-->
+  <link rel="stylesheet" href="public/datatables/jquery.dataTables.min.css">
+  <link rel="stylesheet" href="public/datatables/buttons.dataTables.min.css">
+  <link rel="stylesheet" href="public/datatables/responsive.dataTables.min.css">
+  <link rel="stylesheet" href="public/css/bootstrap-select.min.css">
 </head>
+
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
-  
+
     <header class="main-header">
       <!-- Logo -->
       <a href="" class="logo">
@@ -40,37 +42,15 @@
         <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
           <span class="sr-only">NAVEGACIÓM</span>
         </a>
-  
+
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
-  
+
             <li class="dropdown user user-menu">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <button id="cerrar_session" type="button" class="btn btn-outline-dark w-100">Cerrar session</button>
               </a>
-              <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header">
-                  
-  
-                  <p>
-                  Alan Romero -Desarrollo de software
-                    <small>JULIO 2024</small>
-                  </p>
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
-                  <div class="pull-left">
-                    <a href="#" class="btn btn-default btn-flat">Perfil</a>
-                  </div>
-                  <div class="pull-right">
-                    <a href="../ajax/usuario.php?op=salir" class="btn btn-default btn-flat">Salir</a>
-                  </div>
-                </li>
-              </ul>
             </li>
-            <!-- Control Sidebar Toggle Button -->
-  
           </ul>
         </div>
       </nav>
@@ -80,163 +60,175 @@
       <!-- sidebar: style can be found in sidebar.less -->
       <section class="sidebar">
         <!-- Sidebar user panel -->
-       
+
         <!-- /.search form -->
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-  
-  <br>
-        
-          
-          <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span><small class="label pull-right bg-yellow">PDF</small></a></li>
-          <li><a href="#"><i class="fa  fa-exclamation-circle"></i> <span>Ayuda</span><small class="label pull-right bg-yellow">IT</small></a></li>
+
+          <br>
+
+
+          <li><a href="#"><i class="fa fa-question-circle"></i> <span>Ayuda</span><small
+                class="label pull-right bg-yellow">PDF</small></a></li>
+          <li><a href="#"><i class="fa  fa-exclamation-circle"></i> <span>Ayuda</span><small
+                class="label pull-right bg-yellow">IT</small></a></li>
         </ul>
       </section>
       <!-- /.sidebar -->
     </aside>
 
-<div class="content-wrapper">
-  <!-- Main content -->
-  <section class="content">
+    <div class="content-wrapper">
+      <!-- Main content -->
+      <section class="content">
 
-    <!-- Default box -->
-    <div class="row">
-      <div class="col-md-12">
-    <div class="box">
-<div class="box-header with-border">
-<h1 class="box-title">Usuarios <button class="btn btn-success" onclick="mostrarform(true)" id="btnagregar"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
-<div class="box-tools pull-right">
-  
-</div>
-</div>
-<!--box-header-->
-<!--centro-->
-<div class="panel-body table-responsive" id="listadoregistros">
-<table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
-  <thead>
-    <th>Opciones</th>
-    <th>Nombre</th>
-    <th>Documento</th>
-    <th>Numero Documento</th>
-    <th>Telefono</th>
-    <th>Email</th>
-    <th>Login</th>
-    <th>Foto</th>
-    <th>Estado</th>
-  </thead>
-  <tbody>
-  </tbody>
-  <tfoot>
-    <th>Opciones</th>
-    <th>Nombre</th>
-    <th>Documento</th>
-    <th>Numero Documento</th>
-    <th>Telefono</th>
-    <th>Email</th>
-    <th>Login</th>
-    <th>Foto</th>
-    <th>Estado</th>
-  </tfoot>   
-</table>
-</div>
-<div class="panel-body" id="formularioregistros">
-<form action="" name="formulario" id="formulario" method="POST">
-  <div class="form-group col-lg-12 col-md-12 col-xs-12">
-    <label for="">Nombre(*):</label>
-    <input class="form-control" type="hidden" name="idusuario" id="idusuario">
-    <input class="form-control" type="text" name="nombre" id="nombre" maxlength="100" placeholder="Nombre" required>
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Tipo Documento(*):</label>
-   <select name="tipo_documento" id="tipo_documento" class="form-control select-picker" required>
-     <option value="DNI">DNI</option>
-     <option value="RUC">RUC</option>
-     <option value="CEDULA">CEDULA</option>
-   </select>
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Numero de Documento(*):</label>
-    <input type="text" class="form-control" name="num_documento" id="num_documento" placeholder="Documento" maxlength="20">
-  </div>
-     <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Direccion</label>
-    <input class="form-control" type="text" name="direccion" id="direccion"  maxlength="70">
-  </div>
-     <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Telefono</label>
-    <input class="form-control" type="text" name="telefono" id="telefono" maxlength="20" placeholder="Número de telefono">
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Email: </label>
-    <input class="form-control" type="email" name="email" id="email" maxlength="70" placeholder="email">
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Cargo</label>
-    <input class="form-control" type="text" name="cargo" id="cargo" maxlength="20" placeholder="Cargo">
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Login(*):</label>
-    <input class="form-control" type="text" name="login" id="login" maxlength="20" placeholder="nombre de usuario" required>
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Clave(*):</label>
-    <input class="form-control" type="password" name="clave" id="clave" maxlength="64" placeholder="Clave">
-  </div>
-  <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label>Permisos</label>
-    <ul id="permisos" style="list-style: none;">
-      
-    </ul>
-  </div>
-      <div class="form-group col-lg-6 col-md-6 col-xs-12">
-    <label for="">Imagen:</label>
-    <input class="form-control" type="file" name="imagen" id="imagen">
-    <input type="hidden" name="imagenactual" id="imagenactual">
-    <img src="" alt="" width="150px" height="120" id="imagenmuestra">
-  </div>
-  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-    <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>  Guardar</button>
-    <button class="btn btn-danger" onclick="cancelarform()" type="button"><i class="fa fa-arrow-circle-left"></i> Cancelar</button>
-  </div>
-</form>
-</div>
-<!--fin centro-->
+        <!-- Default box -->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="box">
+              <div class="box-header with-border">
+                <h1 class="box-title">Usuarios <button class="btn btn-success" onclick="mostrarform(true)"
+                    id="btnagregar"><i class="fa fa-plus-circle"></i>Agregar</button></h1>
+                <div class="box-tools pull-right">
+
+                </div>
+              </div>
+              <!--box-header-->
+              <!--centro-->
+              <div class="panel-body table-responsive" id="listadoregistros">
+                <table id="tbllistado" class="table table-striped table-bordered table-condensed table-hover">
+                  <thead>
+                    <th>Opciones</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Numero Documento</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Login</th>
+                    <th>Foto</th>
+                    <th>Estado</th>
+                  </thead>
+                  <tbody>
+                  </tbody>
+                  <tfoot>
+                    <th>Opciones</th>
+                    <th>Nombre</th>
+                    <th>Documento</th>
+                    <th>Numero Documento</th>
+                    <th>Telefono</th>
+                    <th>Email</th>
+                    <th>Login</th>
+                    <th>Foto</th>
+                    <th>Estado</th>
+                  </tfoot>
+                </table>
+              </div>
+              <div class="panel-body" id="formularioregistros">
+                <form action="" name="formulario" id="formulario" method="POST">
+                  <div class="form-group col-lg-12 col-md-12 col-xs-12">
+                    <label for="">Nombre(*):</label>
+                    <input class="form-control" type="hidden" name="idusuario" id="idusuario">
+                    <input class="form-control" type="text" name="nombre" id="nombre" maxlength="100"
+                      placeholder="Nombre" required>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Tipo Documento(*):</label>
+                    <select name="tipo_documento" id="tipo_documento" class="form-control select-picker" required>
+                      <option value="DNI">DNI</option>
+                      <option value="RUC">RUC</option>
+                      <option value="CEDULA">CEDULA</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Numero de Documento(*):</label>
+                    <input type="text" class="form-control" name="num_documento" id="num_documento"
+                      placeholder="Documento" maxlength="20">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Direccion</label>
+                    <input class="form-control" type="text" name="direccion" id="direccion" maxlength="70">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Telefono</label>
+                    <input class="form-control" type="text" name="telefono" id="telefono" maxlength="20"
+                      placeholder="Número de telefono">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Email: </label>
+                    <input class="form-control" type="email" name="email" id="email" maxlength="70" placeholder="email">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Cargo</label>
+                    <input class="form-control" type="text" name="cargo" id="cargo" maxlength="20" placeholder="Cargo">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Login(*):</label>
+                    <input class="form-control" type="text" name="login" id="login" maxlength="20"
+                      placeholder="nombre de usuario" required>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Clave(*):</label>
+                    <input class="form-control" type="password" name="clave" id="clave" maxlength="64"
+                      placeholder="Clave">
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label>Permisos</label>
+                    <ul id="permisos" style="list-style: none;">
+
+                    </ul>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-xs-12">
+                    <label for="">Imagen:</label>
+                    <input class="form-control" type="file" name="imagen" id="imagen">
+                    <input type="hidden" name="imagenactual" id="imagenactual">
+                    <img src="" alt="" width="150px" height="120" id="imagenmuestra">
+                  </div>
+                  <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <button class="btn btn-primary" type="submit" id="btnGuardar"><i class="fa fa-save"></i>
+                      Guardar</button>
+                    <button class="btn btn-danger" onclick="cancelarform()" type="button"><i
+                        class="fa fa-arrow-circle-left"></i> Cancelar</button>
+                  </div>
+                </form>
+              </div>
+              <!--fin centro-->
+            </div>
+          </div>
+        </div>
+        <!-- /.box -->
+
+      </section>
+      <!-- /.content -->
     </div>
-    </div>
-    </div>
-    <!-- /.box -->
+    <footer class="main-footer">
+      <div class="pull-right hidden-xs">
+        <b>Version</b> 0.0.1
+      </div>
+      <strong>Copyright &copy; 2024<a target="_blank"
+          href="https://www.youtube.com/channel/UC-O4MJh9KfFBYsIfjzeaYPw">Alan Romero</a>.</strong> Todo los derechos
+      reservados.
+    </footer>
 
-  </section>
-  <!-- /.content -->
-</div>
-<footer class="main-footer">
-  <div class="pull-right hidden-xs">
-    <b>Version</b> 0.0.1
-  </div>
-  <strong>Copyright &copy; 2024<a target="_blank" href="https://www.youtube.com/channel/UC-O4MJh9KfFBYsIfjzeaYPw">Alan Romero</a>.</strong> Todo los derechos
-  reservados.
-</footer>
+    <!-- jQuery 3 -->
 
-<!-- jQuery 3 -->
+    <script src="public/js/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <!-- Bootstrap 3.3.7 -->
+    <script src="public/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <!-- AdminLTE App -->
+    <script src="public/js/adminlte.min.js"></script>
+    <script src="public/datatables/buttons.colVis.min.js"></script>
+    <script src="public/datatables/buttons.html5.min.js"></script>
+    <script src="public/datatables/dataTables.buttons.min.js"></script>
+    <script src="public/datatables/jquery.dataTables.min.js"></script>
+    <script src="public/datatables/jszip.min.js"></script>
 
-<script src="public/js/jquery.min.js"></script>
-<!-- jQuery UI 1.11.4 -->
-<!-- Bootstrap 3.3.7 -->
-<script src="public/js/bootstrap.min.js"></script>
-<!-- Morris.js charts -->
-<!-- AdminLTE App -->
-<script src="public/js/adminlte.min.js"></script>
-<script src="public/datatables/buttons.colVis.min.js"></script>
-<script src="public/datatables/buttons.html5.min.js"></script>
-<script src="public/datatables/dataTables.buttons.min.js"></script>
-<script src="public/datatables/jquery.dataTables.min.js"></script>
-<script src="public/datatables/jszip.min.js"></script>
-
-<script src="public/datatables/pdfmake.min.js"></script>
-<script src="public/datatables/vfs_fonts.js"></script>
-<script src="public/datatables/datatables.min.js"></script>
-<script src="public/js/bootbox.min.js"></script>
-<script src="public/js/bootstrap-select.min.js"></script>
+    <script src="public/datatables/pdfmake.min.js"></script>
+    <script src="public/datatables/vfs_fonts.js"></script>
+    <script src="public/datatables/datatables.min.js"></script>
+    <script src="public/js/bootbox.min.js"></script>
+    <script src="public/js/bootstrap-select.min.js"></script>
 
 </body>
+
 </html>
