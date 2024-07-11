@@ -42,7 +42,7 @@ export function inicio_session(usuario, password) {
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    window.location.href = '../home.php'; 
+    window.location.href = '../home.html'; 
   }
   else {
     console.log('sesion no iniciada')
