@@ -1,6 +1,4 @@
-import {registrarUsuario} from './firebase.js';
-
-
+import {registrarUsuario, inicio_session} from './firebase.js';
 
 
 
@@ -9,6 +7,7 @@ btn_enviar.addEventListener("click", () =>{
 
     let nombre = document.getElementById('username').value
     let password = document.getElementById('password').value
-    registrarUsuario(nombre,password)
+    //registrarUsuario(nombre,password)
+    inicio_session(nombre, password)
 
 })   
