@@ -54,3 +54,14 @@ setPersistence(auth, browserSessionPersistence)
   }).catch((error) => {
     console.log(error)  
   })
+  function cerrarSesion() {
+    firebase.auth().signOut().then(function() {
+        // Sign-out successful.
+        console.log('Usuario cerró sesión');
+        // Redirigir al usuario al índice (index.html en este ejemplo)
+        window.location.href = 'index.html'; // Cambia 'index.html' por la ruta de tu página de destino
+    }).catch(function(error) {
+        // An error happened.
+        console.error('Error al cerrar sesión:', error);
+    });
+}
