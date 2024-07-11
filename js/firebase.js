@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import {getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,50 +20,32 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app); // Recommended to pass `app`
 
-export const registrarUsuario = (username,password ) => {
-    try {
-      addDoc(collection(db, "usuario"), {
-        username: username,
-        password: password
-      });
-      console.log("Usuario Registrado");
-    }
-    catch (error) {
-      console.error('Error al registrar el usuario', error)
-    }
-  }
-  export function inicio_session(usuario, password){
-   return  signInWithEmailAndPassword(auth, usuario, password)
+export function inicio_session(usuario, password) {
+  return signInWithEmailAndPassword(auth, usuario, password)
 
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       console.log('sesion iniciado')
-  
+
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       console.log(errorMessage)
     });
-  
+
+}
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log('usuario iniciado')
   }
-  onAuthStateChanged(auth, (user)=> {
-    if(user){
-      console.log('usuario iniciado')
-    }
-    else{
-      console.log('sesion no iniciada')
-    }
-  } )
-  setPersistence(auth,browserSessionPersistence)
-  .then(()=> {
-
+  else {
+    console.log('sesion no iniciada')
+  }
+})
+setPersistence(auth, browserSessionPersistence)
+  .then(() => {
     //console.log('la sesion esta siendo iniciada')
-
-
-
-  } ).catch((error)=>{
-
+  }).catch((error) => {
     console.log(error)
-
   })
