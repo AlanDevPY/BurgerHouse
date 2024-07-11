@@ -1,4 +1,5 @@
 import {registrarUsuario, inicio_session} from './firebase.js';
+import { imporHTML } from './importHTML.js';
 
 
 
@@ -11,3 +12,15 @@ btn_enviar.addEventListener("click", () =>{
     inicio_session(nombre, password)
 
 })   
+
+
+
+// main.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    imporHTML('navBar', './moduloHTML/navBar.html');
+});
+
+
+
+
