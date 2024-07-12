@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-app.js";
 import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-firestore.js";
-import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, setPersistence, browserSessionPersistence, signOut  } from "https://www.gstatic.com/firebasejs/10.4.0/firebase-auth.js";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,48 +20,33 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app); // Recommended to pass `app`
 
-export function inicio_session(usuario, password) {
-  return signInWithEmailAndPassword(auth, usuario, password)
-
-    .then((userCredential) => {
-      // Signed in 
-      const user = userCredential.user;
-      console.log('sesion iniciado')
-
-    }).catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log(errorCode)
-      let alert = document.getElementById('alertLogin')
-      alert.style.display = 'block'
-      alert.innerHTML = "Credenciales incorrectas, favor verifique sus datos"
-    });
-
-}
-
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    window.location.href = '../home.html'; 
+      // window.location.href = '../home.html'; 
   }
   else {
-    console.log('sesion no iniciada')
+    console.log('sesion no iniciada') 
+    window.location.href = '../index.html'; 
   }
 })
+
+
 setPersistence(auth, browserSessionPersistence)
   .then(() => {
     
   }).catch((error) => {
     console.log(error)  
   })
-  function cerrarSesion() {
-    firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-        console.log('Usuario cerró sesión');
-        // Redirigir al usuario al índice (index.html en este ejemplo)
-        window.location.href = 'index.html'; // Cambia 'index.html' por la ruta de tu página de destino
-    }).catch(function(error) {
-        // An error happened.
-        console.error('Error al cerrar sesión:', error);
+
+  export const signOutUser = () => {
+    const auth = getAuth();
+    signOut(auth).then(() => {
+      // Sign-out successful.
+      console.log("Sign-out successful.");
+      window.location.href = '../index.html'; 
+    }).catch((error) => {
+      // An error happened.
+      console.error("An error happened during sign-out:", error);
     });
-}
+  };
